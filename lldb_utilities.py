@@ -129,13 +129,17 @@ class DebuggerCommandDumpNsdata(DebuggerCommand):
 
         if self.args.clipboard:
             self.copy_object_expression_result_to_clipboard('@"{}"'.format(self.args.output))
-        
+
+        if self.args.hex_fiend:
+            subprocess.call(['open', '-b', 'com.ridiculousfish.HexFiend', self.args.output]);
+
     @classmethod
     def configure_argument_parser(cls, parser):
         parser.add_argument('expression', nargs='+')
         parser.add_argument('-output', help='output path')
         parser.add_argument('-clipboard', action='store_true', help='copy output path to clipboard')
         parser.add_argument('-reveal', action='store_true', help='reveal output file in Finder')
+        parser.add_argument('-hex-fiend', '-x', action='store_true', help='open output file in Hex Fiend')
 
 
 class DebuggerCommandCopyObjectDescriptionToClipboard(DebuggerCommand):

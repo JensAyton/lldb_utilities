@@ -68,6 +68,8 @@ The `-r` (“reveal”) option reveals the resulting file in the Finder.
 
 The `-c` (“clipboard”) option copies the path to the resulting file to the clipboard.
 
+The `-x` (“hex-fiend”) option opens the resulting file in Hex Fiend.
+
 You can combine these options:
 
     (lldb) dump_nsdata -c -r -o ~/Desktop/foo.bin someData
